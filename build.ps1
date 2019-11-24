@@ -1,0 +1,1 @@
+dotnet pack src\SmartMvvm.Xaml\SmartMvvm.Xaml.csproj -p:VersionSuffix=pre0001 -o artifacts -c Release
