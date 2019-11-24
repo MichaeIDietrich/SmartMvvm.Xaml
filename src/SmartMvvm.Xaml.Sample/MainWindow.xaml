@@ -1,0 +1,27 @@
+﻿<Window x:Class="SmartMvvm.Xaml.Sample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sample="clr-namespace:SmartMvvm.Xaml.Sample"
+        Width="800"
+        Height="450"
+        Title="Sample"
+        UseLayoutRounding="True"
+        mc:Ignorable="d">
+
+    <TabControl Padding="10">
+        <TabItem Header="General">
+            <sample:GeneralView />
+        </TabItem>
+        <TabItem Header="Logic">
+            <sample:LogicView />
+        </TabItem>
+        <TabItem Header="Calculator">
+            <sample:CalculatorView />
+        </TabItem>
+        <TabItem Header="Master/Detail">
+            <sample:ListBoxView />
+        </TabItem>
+    </TabControl>
+</Window>

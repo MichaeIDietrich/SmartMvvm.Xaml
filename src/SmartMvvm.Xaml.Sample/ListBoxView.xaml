@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="SmartMvvm.Xaml.Sample.ListBoxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="View"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ListBox x:Name="ListBox"
+                 Grid.ColumnSpan="{If {Greater {Binding ElementName=View, Path=ActualWidth},
+                                               {Double 600}},
+                                      Then={Int 1},
+                                      Else={Int 2}}"
+                 SelectionMode="Multiple">
+            <ListBoxItem Content="Item 1" />
+            <ListBoxItem Content="Item 2" />
+            <ListBoxItem Content="Item 3" />
+            <ListBoxItem Content="Item 4" />
+            <ListBoxItem Content="Item 5" />
+        </ListBox>
+        <StackPanel Grid.Row="{If {Greater {Binding ElementName=View, Path=ActualWidth},
+                                           {Double 600}},
+                                  Then={Int 0},
+                                  Else={Int 1}}"
+                    Grid.Column="{If {Greater {Binding ElementName=View, Path=ActualWidth},
+                                              {Double 600}},
+                                     Then={Int 2},
+                                     Else={Int 0}}"
+                    Grid.ColumnSpan="{If {Greater {Binding ElementName=View, Path=ActualWidth},
+                                                  {Double 600}},
+                                         Then={Int 1},
+                                         Else={Int 2}}"
+                    Margin="5">
+            <TextBlock Margin="0,0,0,5"
+                       Text="Details:" />
+            <TextBlock Text="{Format 'Please select an item',
+                                     {Binding ElementName=ListBox, Path=SelectedItem}}"
+                       Visibility="{Equal {Binding ElementName=ListBox, Path=SelectedItem},
+                                          {x:Null}}" />
+            <TextBlock Text="{Format '{}\'{0}\' is selected',
+                                     {Binding ElementName=ListBox, Path=SelectedItem.Content}}"
+                       Visibility="{Equal {Binding ElementName=ListBox, Path=SelectedItems.Count},
+                                          {Int 1}}" />
+            <TextBlock Text="{Format '{}There are {0} items selected',
+                                     {Binding ElementName=ListBox, Path=SelectedItems.Count}}"
+                       Visibility="{Greater {Binding ElementName=ListBox, Path=SelectedItems.Count},
+                                            {Int 1}}" />
+        </StackPanel>
+    </Grid>
+</UserControl>
