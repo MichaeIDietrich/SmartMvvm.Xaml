@@ -18,12 +18,9 @@ function Get-VersionSuffix
 {
     param( [string] $branch )
 
-    $buildNumber = $env:APPVEYOR_BUILD_NUMBER
+    $buildNumber = 0
 
-    if (!$buildNumber)
-    {
-        $buildNumber = 0
-    }
+    [int]::TryParse($env:APPVEYOR_BUILD_NUMBER, [ref]$buildNumber) | Out-Null
 
     $buildNumber = "{0:d4}" -f $buildNumber
 
