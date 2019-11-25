@@ -1,7 +1,7 @@
 function Get-CurrentBranch
 {
     $branch = $env:APPVEYOR_REPO_BRANCH
-    if (!$branch)
+    if (!$branch -and (Get-Command "git.exe" -ErrorAction SilentlyContinue))
     {
         $branch = git rev-parse --abbrev-ref HEAD
     }
