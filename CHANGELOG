@@ -1,7 +1,15 @@
 SmartMvvm.Xaml Changelog
 ========================
 
+v1.0.0
+------
+
+ - First real release (no pre-release tag any more).
+ - {If} markup extension now returns boolean values rather than null, if Then adn Else properties are not set.
+ - Introduced new constructor to {If} markup extension to provide a convenient way of comparison two input values.
+ - Removed old constructor from {If} markup extension to prevent wrong constructor resolution from XAML markup parser.
+
 v0.9.0
 ------
 
-Initial release
+ - Initial release.
