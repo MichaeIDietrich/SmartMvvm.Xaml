@@ -1,6 +1,7 @@
 # SmartMvvm.Xaml
 
-[![Build status](https://ci.appveyor.com/api/projects/status/mw21p6jogh4v4cgh/branch/test?svg=true)](https://ci.appveyor.com/project/FrecherxDachs/smartmvvm-xaml/branch/test)
+[![NuGet](https://img.shields.io/nuget/v/SmartMvvm.Xaml.svg)](https://www.nuget.org/packages/SmartMvvm.Xaml/)
+[![Build status](https://ci.appveyor.com/api/projects/status/mw21p6jogh4v4cgh/branch/master?svg=true)](https://ci.appveyor.com/project/FrecherxDachs/smartmvvm-xaml/branch/master)
 
 Introduction
 -------------
@@ -12,9 +13,9 @@ SmartMvvm.Xaml contains a set of useful markup extensions and other objects to s
 Getting Started
 -------------------
 
-Pre release NuGet can be found here: https://www.nuget.org/packages/SmartMvvm.Xaml
+To use these XAML utilities in your project, simply install the [SmartMvvm.Xaml](https://www.nuget.org/packages/SmartMvvm.Xaml) NuGet package to your project.
 
- - _following soon_
+Check out the [sample application](https://github.com/FrecherxDachs/SmartMvvm.Xaml/tree/develop/src/SmartMvvm.Xaml.Sample) to see how you can use these utilities in your project.
 
 Samples
 -------
