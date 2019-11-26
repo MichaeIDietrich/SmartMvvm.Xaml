@@ -24,7 +24,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// Initializes a new instance of <see cref="As"/>.
         /// </summary>
         /// <param name="item">Input.</param>
-        /// <param name="second">Type code of the resulting value.</param>
+        /// <param name="type">Type code of the resulting value.</param>
         public As(object item, TypeCode type)
             : base(item)
         {
