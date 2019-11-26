@@ -14,7 +14,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// </summary>
         /// <param name="condition">Condition to evaluate.</param>
         public If(object condition)
-        : base(condition, null, null)
+        : base(condition, true, false)
         { }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// <param name="comparisonMode">How the <paramref name="left"/> is compared to <paramref name="right"/>.</param>
         /// <param name="right">Right input value.</param>
         public If(object left, ComparisonMode comparisonMode, object right)
-        : base(ModeToComparison(comparisonMode, left, right), null, null)
+        : base(ModeToComparison(comparisonMode, left, right), true, false)
         { }
 
         /// <summary>
