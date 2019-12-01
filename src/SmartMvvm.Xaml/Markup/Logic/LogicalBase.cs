@@ -111,6 +111,12 @@ namespace SmartMvvm.Xaml.Markup.Logic
 
             public object Execute()
             {
+                // empty MultiBindings will fail at runtime
+                // simply add an unused Binding, which won't be used in evaluation,
+                // since there is no matching operation
+                if (_bindings.Bindings.Count == 0)
+                    _bindings.Bindings.Add(new Binding { Source = null });
+
                 return _bindings.ProvideValue(_serviceProvider);
             }
 

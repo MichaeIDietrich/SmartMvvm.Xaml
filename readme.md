@@ -38,9 +38,9 @@ Samples
 
 <TextBox x:Name="CountTextBox" Text="100" />
 <TextBlock Text="{If {Use TooManyItems}, 
-                     'Too many items!'},
-                     'Enter the number of items to generate.'}"
+                     Then='Too many items!'},
+                     Else='Enter the number of items to generate.'}"
            Foreground="{If {Use TooManyItems},
-                           {x:Static Brushes.Red},
-                           {x:Static Brushes.Black}}" />
+                           Then={x:Static Brushes.Red},
+                           Else={x:Static Brushes.Black}}" />
 ```
