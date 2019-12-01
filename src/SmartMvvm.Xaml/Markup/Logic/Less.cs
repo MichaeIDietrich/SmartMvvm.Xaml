@@ -19,7 +19,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// <InheritDoc />
         protected override object Evaluate(IReadOnlyList<object> values)
         {
-            return AsNumber(values[0]) <= AsNumber(values[1]);
+            return AsNumber(values[0]) < AsNumber(values[1]);
         }
     }
 }

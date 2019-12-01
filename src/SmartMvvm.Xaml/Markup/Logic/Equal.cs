@@ -63,9 +63,9 @@ namespace SmartMvvm.Xaml.Markup.Logic
                 var difference = AsNumber(values[0]) - AsNumber(values[1]);
 
                 if (difference < 0)
-                    return -difference < AsNumber(epsilon);
+                    return -difference <= AsNumber(epsilon);
 
-                return difference < AsNumber(epsilon);
+                return difference <= AsNumber(epsilon);
             } 
             catch when (FallbackValue != DependencyProperty.UnsetValue)
             {
