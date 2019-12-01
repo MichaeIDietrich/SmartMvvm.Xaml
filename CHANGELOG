@@ -1,6 +1,15 @@
 SmartMvvm.Xaml Changelog
 ========================
 
+v1.1.0
+------
+
+ - Fixed a bug where any logic based markup extension failed if there wasn't at least one Binding in use.
+ - Fixed a bug where Less markup extension mistakenly also succeeded if both input values where equal to each other.
+ - Changed the behavior that the range defined by the epsilon property for the Equal markup extension now also includes the range boundaries.
+   (2 is now equal to 3 if epsilon is set to 1)
+ - Introduced a new markup extension called Is that can be used to check for a specific property of a given value.
+
 v1.0.0
 ------
 
