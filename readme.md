@@ -25,7 +25,7 @@ Samples
 <ProgressBar Visibility="{And {Binding IsLoading}, {Binding IsConnected}}" />
 
 <!-- evaluate mathematical expressions and format the result -->
-<TextBlock Text="{Format '{}{0} cells', 
+<TextBlock Text="{Format 'Results in {0} cells', 
                          {Calc 'x * y', 
                                {Binding NumberOfColumns}, 
                                {Binding NumberOfRows}}}" />
