@@ -74,7 +74,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
         {
             var targetService = (IProvideValueTarget)serviceProvider.GetService(typeof(IProvideValueTarget));
 
-            if (targetService?.TargetObject == null || targetService?.TargetObject is LogicalBase)
+            if (targetService?.TargetObject == null || targetService.TargetObject is LogicalBase)
                 return this;
 
             var processor = new Processor(serviceProvider);
@@ -93,7 +93,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
             if (value is string)
                 value = Convert.ToDouble(value);
 
-            return (dynamic)value;
+            return value;
         }
 
         private class Processor : IMultiValueConverter
