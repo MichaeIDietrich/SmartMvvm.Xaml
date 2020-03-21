@@ -1,22 +1,29 @@
 SmartMvvm.Xaml Changelog
 ========================
 
+v1.2.0
+------
+
+- Extended `{Is}` markup extension to easily check `boolean` expressions for being `true` or `false`.
+- Introduced a new `{Byte}` markup extension that can be used to create `byte` values.
+- Introduced a new `{Thickness}` markup extension that can be used to create `System.Windows.Thickness` values where each if its properties can freely be defined using constants or `Binding`s.
+
 v1.1.0
 ------
 
- - Fixed a bug where any logic based markup extension failed if there wasn't at least one Binding in use.
- - Fixed a bug where Less markup extension mistakenly also succeeded if both input values where equal to each other.
- - Changed the behavior that the range defined by the epsilon property for the Equal markup extension now also includes the range boundaries.
-   (2 is now equal to 3 if epsilon is set to 1)
- - Introduced a new markup extension called Is that can be used to check for a specific property of a given value.
+ - Fixed a bug where any logic based markup extension failed if there wasn't at least one `Binding` in use.
+ - Fixed a bug where `{Less}` markup extension mistakenly also succeeded if both input values where equal to each other.
+ - Changed the behavior that the range defined by the `Epsilon` property for the `{Equal}` markup extension now also includes the range boundaries.
+   (e.g. 2 is now equal to 3 if `Epsilon` is set to 1)
+ - Introduced a new `{Is}` markup extension that can be used to check for a specific property of a given value.
 
 v1.0.0
 ------
 
  - First real release (no pre-release tag any more).
- - {If} markup extension now returns boolean values rather than null, if Then adn Else properties are not set.
- - Introduced new constructor to {If} markup extension to provide a convenient way of comparison two input values.
- - Removed old constructor from {If} markup extension to prevent wrong constructor resolution from XAML markup parser.
+ - `{If}` markup extension now returns `boolean` values rather than `null`, if `Then` and `Else` properties are not set.
+ - Introduced new constructor to `{If}` markup extension to provide a convenient way of comparison two input values.
+ - Removed old constructor from `{If}` markup extension to prevent wrong constructor resolution from XAML markup parser.
 
 v0.9.0
 ------
