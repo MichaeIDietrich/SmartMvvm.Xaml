@@ -1,9 +1,4 @@
 version: 1.0.0
-branches:
-  only:
-  - master
-  - /release*/
-  - develop
 image: Visual Studio 2019
 build_script:
 - ps: ./.ci/build.ps1
