@@ -1,20 +1,20 @@
 $project = "$PSScriptRoot\..\src\SmartMvvm.Xaml\SmartMvvm.Xaml.csproj"
 
 
-$branch = & "$PSScriptRoot\common\Get-CurrentBranch.ps1"
-$suffix = & "$PSScriptRoot\common\Get-VersionSuffix.ps1" -branch $branch
-
-
 $version = & "$PSScriptRoot\common\Get-VersionPrefix.ps1" -projectFilePath $project
+
+$branch = & "$PSScriptRoot\common\Get-CurrentBranch.ps1"
+$versionSuffix = & "$PSScriptRoot\common\Get-VersionSuffix.ps1" -branch $branch
+
 
 $props = @($project, '-o', 'artifacts', '-c', 'Release')
 
-if ($suffix)
+if ($versionSuffix)
 {
-    $props = $props += "-p:VersionSuffix=$suffix"
-    $version = "$verion-$suffix"
+    $props = $props += "-p:VersionSuffix=$versionSuffix"
+    $version = "$version-$versionSuffix"
 }
 
-dotnet pack $props
+Update-AppveyorBuild -Version "$version"
 
-& "$PSScriptRoot\common\Set-BuildVersion.ps1" -Version $version
+dotnet pack $props
