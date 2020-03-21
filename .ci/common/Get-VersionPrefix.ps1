@@ -2,11 +2,13 @@ param( [string] $projectFilePath )
 
 [xml]$content = Get-Content -Path $projectFilePath
 
-$prefix = $content.DocumentElement.SelectSingleNode("/Project/PropertyGroup/VersionPrefix")
+$prefix = "1.0.0"
 
-if (!$prefix)
+$versionNode = $content.DocumentElement.SelectSingleNode("/Project/PropertyGroup/VersionPrefix")
+
+if ($versionNode)
 {
-    $prefix = "1.0.0"
+    $prefix = $versionNode.InnerText
 }
 
 return $prefix
