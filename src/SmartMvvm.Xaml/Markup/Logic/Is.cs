@@ -54,6 +54,12 @@ namespace SmartMvvm.Xaml.Markup.Logic
                 case ComparisonMode.One:
                     return AsNumber(value) == 1;
 
+                case ComparisonMode.True:
+                    return Equals(value, true);
+
+                case ComparisonMode.False:
+                    return Equals(value, false);
+
                 default:
                     throw new InvalidOperationException($"{value} is not value");
             }
@@ -75,29 +81,39 @@ namespace SmartMvvm.Xaml.Markup.Logic
             NonEmpty,
 
             /// <summary>
-            /// Checks whether the input value equals to <c>null</c>.
+            /// Checks whether the input value is equal to <c>null</c>.
             /// </summary>
             Null,
 
             /// <summary>
-            /// Checks whether the input value does not equal to <c>null</c>.
+            /// Checks whether the input value is not equal to <c>null</c>.
             /// </summary>
             NotNull,
 
             /// <summary>
-            /// Checks whether the input value equals to 0.
+            /// Checks whether the input value is equal to 0.
             /// </summary>
             Zero,
 
             /// <summary>
-            /// Checks whether the input value does not equal to 0.
+            /// Checks whether the input value is not equal to 0.
             /// </summary>
             NonZero,
 
             /// <summary>
-            /// Checks whether the input value equals to 1.
+            /// Checks whether the input value is equal to 1.
             /// </summary>
             One,
+
+            /// <summary>
+            /// Checks whether the input value is equal <c>true</c>.
+            /// </summary>
+            True,
+
+            /// <summary>
+            /// Checks whether the input value is equal to <c>false</c>.
+            /// </summary>
+            False
         }
     }
 }

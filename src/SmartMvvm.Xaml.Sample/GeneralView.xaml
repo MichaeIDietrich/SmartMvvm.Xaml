@@ -38,7 +38,7 @@
                                             {Use Height}},
                                       Then='Width is less than Height',
                                       Else='Width is greater than Height'}}" />
-        <TextBlock Text="{Format Alltogether: {0} pixels.,
+        <TextBlock Text="{Format Altogether: {0} pixels.,
                                  {Calc 'x * y',
                                        {Use Width},
                                        {Use Height}}}" />
@@ -60,7 +60,7 @@
                       Visibility="{Equal {Binding ElementName=CheckBox, Path=IsChecked},
                                          {Bool False}}" />
         <Separator Margin="5" />
-        <TextBlock Text="{Format '{}Current date: {0:yyyy-MM-dd}',
+        <TextBlock Text="{Format 'Current date: {0:yyyy-MM-dd}',
                                  {x:Static system:DateTime.Now}}" />
     </StackPanel>
 </UserControl>

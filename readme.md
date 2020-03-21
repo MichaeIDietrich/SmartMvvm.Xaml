@@ -1,7 +1,8 @@
 # SmartMvvm.Xaml
 
 [![NuGet](https://img.shields.io/nuget/v/SmartMvvm.Xaml.svg)](https://www.nuget.org/packages/SmartMvvm.Xaml/)
-[![Build status](https://ci.appveyor.com/api/projects/status/mw21p6jogh4v4cgh/branch/master?svg=true)](https://ci.appveyor.com/project/FrecherxDachs/smartmvvm-xaml/branch/master)
+[![Build status (master)](https://ci.appveyor.com/api/projects/status/mw21p6jogh4v4cgh/branch/master?svg=true&passingText=master%20-%20passing&pendingText=master%20-%20pending&failingText=master%20-%20FAILED)](https://ci.appveyor.com/project/FrecherxDachs/smartmvvm-xaml/branch/master)
+[![Build status (develop)](https://ci.appveyor.com/api/projects/status/mw21p6jogh4v4cgh/branch/develop?svg=true&passingText=develop%20-%20passing&pendingText=develop%20-%20pending&failingText=develop%20-%20FAILED)](https://ci.appveyor.com/project/FrecherxDachs/smartmvvm-xaml/branch/develop)
 
 Introduction
 -------------
@@ -25,7 +26,7 @@ Samples
 <ProgressBar Visibility="{And {Binding IsLoading}, {Binding IsConnected}}" />
 
 <!-- evaluate mathematical expressions and format the result -->
-<TextBlock Text="{Format '{}{0} cells', 
+<TextBlock Text="{Format 'Results in {0} cells', 
                          {Calc 'x * y', 
                                {Binding NumberOfColumns}, 
                                {Binding NumberOfRows}}}" />

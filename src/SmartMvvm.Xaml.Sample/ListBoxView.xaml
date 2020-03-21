@@ -47,11 +47,11 @@
                                      {Binding ElementName=ListBox, Path=SelectedItem}}"
                        Visibility="{Equal {Binding ElementName=ListBox, Path=SelectedItem},
                                           {x:Null}}" />
-            <TextBlock Text="{Format '{}\'{0}\' is selected',
+            <TextBlock Text="{Format '\'{0}\' is selected',
                                      {Binding ElementName=ListBox, Path=SelectedItem.Content}}"
                        Visibility="{Equal {Binding ElementName=ListBox, Path=SelectedItems.Count},
                                           {Int 1}}" />
-            <TextBlock Text="{Format '{}There are {0} items selected',
+            <TextBlock Text="{Format 'There are {0} items selected',
                                      {Binding ElementName=ListBox, Path=SelectedItems.Count}}"
                        Visibility="{Greater {Binding ElementName=ListBox, Path=SelectedItems.Count},
                                             {Int 1}}" />
