@@ -33,9 +33,9 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { null, ComparisonMode.Null, true };
             yield return new object[] { 1, ComparisonMode.Null, false };
             yield return new object[] { new object(), ComparisonMode.Null, false };
-            yield return new object[] { null, ComparisonMode.NotNull, false };
-            yield return new object[] { 1, ComparisonMode.NotNull, true };
-            yield return new object[] { new object(), ComparisonMode.NotNull, true };
+            yield return new object[] { null, ComparisonMode.NonNull, false };
+            yield return new object[] { 1, ComparisonMode.NonNull, true };
+            yield return new object[] { new object(), ComparisonMode.NonNull, true };
             yield return new object[] { 0, ComparisonMode.Zero, true };
             yield return new object[] { "0", ComparisonMode.Zero, true };
             yield return new object[] { 1, ComparisonMode.Zero, false };

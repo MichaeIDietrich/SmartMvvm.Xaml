@@ -30,7 +30,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
         public Is(object value)
             : base(value)
         {
-            _comparisonMode = ComparisonMode.TrueOrNotEmpty;
+            _comparisonMode = ComparisonMode.TrueOrNonEmpty;
         }
 
         /// <InheritDoc />
@@ -52,7 +52,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
                 case ComparisonMode.Null:
                     return value is null;
 
-                case ComparisonMode.NotNull:
+                case ComparisonMode.NonNull:
                     return !(value is null);
 
                 case ComparisonMode.Zero:
@@ -70,7 +70,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
                 case ComparisonMode.False:
                     return Equals(value, false);
 
-                case ComparisonMode.TrueOrNotEmpty:
+                case ComparisonMode.TrueOrNonEmpty:
                     return Equals(value, true) || (Any(value) ?? !Equals(value, null));
 
                 default:
@@ -106,7 +106,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
             /// <summary>
             /// Checks whether the input value is not equal to <c>null</c>.
             /// </summary>
-            NotNull,
+            NonNull,
 
             /// <summary>
             /// Checks whether the input value is equal to 0.
@@ -136,7 +136,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
             /// <summary>
             /// Checks whether the input value is either <c>true</c>, not empty or at least not <c>null</c>.
             /// </summary>
-            TrueOrNotEmpty
+            TrueOrNonEmpty
         }
     }
 }
