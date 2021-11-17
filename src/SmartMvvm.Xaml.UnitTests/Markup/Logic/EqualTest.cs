@@ -3,6 +3,7 @@ using SmartMvvm.Xaml.Markup;
 using SmartMvvm.Xaml.Markup.Logic;
 using System.Collections;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Data;
 using Xunit;
 
@@ -73,7 +74,7 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
         public void Use_FallbackValue_On_Error()
         {
             // given
-            var sut = new Equal(true, null) { Epsilon = 0, FallbackValue = "FALLBACK" };
+            var sut = new Equal(true, 'a') { Epsilon = 0, FallbackValue = "FALLBACK" };
 
             // when
             var result = Evaluator.Evaluate(sut);
@@ -97,6 +98,8 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { "abc", new Binding { Source = "abc" }, true };
             yield return new object[] { 155, new Binding { Source = "155" }, false };
             yield return new object[] { 155, "155", false };
+            yield return new object[] { DependencyProperty.UnsetValue, "155", false };
+            yield return new object[] { DependencyProperty.UnsetValue, DependencyProperty.UnsetValue, true };
         }
 
         public static IEnumerable<object[]> ParametersDataWithEpsilon()

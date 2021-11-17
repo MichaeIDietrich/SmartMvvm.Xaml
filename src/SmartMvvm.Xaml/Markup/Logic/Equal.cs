@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Data;
@@ -60,7 +61,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
                 if (epsilon == null)
                     return Equals(values[0], values[1]);
 
-                var difference = AsNumber(values[0]) - AsNumber(values[1]);
+                var difference = Math.Abs(AsNumber(values[0]) - AsNumber(values[1]));
 
                 if (difference < 0)
                     return -difference <= AsNumber(epsilon);

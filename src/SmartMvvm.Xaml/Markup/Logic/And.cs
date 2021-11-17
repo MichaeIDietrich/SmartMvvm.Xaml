@@ -41,7 +41,11 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// <InheritDoc />
         protected override object Evaluate(IReadOnlyList<object> values)
         {
-            return values.Cast<bool>().All(b => b);
+            var preview = string.Join(", ", values);
+
+            var res = values.All(b => Equals(b, true));
+
+            return res;
         }
     }
 }

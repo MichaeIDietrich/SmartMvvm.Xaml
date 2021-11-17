@@ -63,6 +63,9 @@ namespace SmartMvvm.Xaml.Markup.Logic
             {
                 var value = values.Single();
 
+                if (value == DependencyProperty.UnsetValue)
+                    return FallbackValue;
+
                 if (Type is TypeCode type)
                     return Convert.ChangeType(value, type);
 

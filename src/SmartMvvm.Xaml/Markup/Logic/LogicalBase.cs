@@ -90,8 +90,17 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// <param name="value">The value to convert.</param>
         protected static dynamic AsNumber(object value)
         {
-            if (value is string)
-                value = Convert.ToDouble(value);
+            if (value is null)
+                return 0;
+
+            var typeCode = Type.GetTypeCode(value.GetType());
+
+            // sort out null, Object, DBNull since those cannot be casted to double
+            if (typeCode < TypeCode.Boolean)
+                return 0.0;
+
+            if (typeCode == TypeCode.String)
+                return Convert.ToDouble(value);
 
             return value;
         }

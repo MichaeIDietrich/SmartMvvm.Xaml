@@ -1,5 +1,6 @@
 ﻿using SmartMvvm.Xaml.Markup.Logic;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Data;
 using Xunit;
 
@@ -29,6 +30,7 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { MarkupConstants.StaticFalse, true };
             yield return new object[] { new Binding { Source = true }, false };
             yield return new object[] { new Binding { Source = false }, true };
+            yield return new object[] { DependencyProperty.UnsetValue, true };
         }
     }
 }

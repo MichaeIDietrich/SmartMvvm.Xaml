@@ -1,5 +1,6 @@
 ﻿using SmartMvvm.Xaml.Markup.Logic;
 using System.Collections.Generic;
+using System.Windows;
 using Xunit;
 using static SmartMvvm.Xaml.Markup.Logic.Is;
 
@@ -46,6 +47,12 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { "0", ComparisonMode.One, false };
             yield return new object[] { "1", ComparisonMode.One, true };
             yield return new object[] { 1, ComparisonMode.One, true };
+            yield return new object[] { true, ComparisonMode.TrueOrNonEmpty, true };
+            yield return new object[] { false, ComparisonMode.TrueOrNonEmpty, false };
+            yield return new object[] { "abc", ComparisonMode.TrueOrNonEmpty, true };
+            yield return new object[] { "", ComparisonMode.TrueOrNonEmpty, false };
+            yield return new object[] { null, ComparisonMode.TrueOrNonEmpty, false };
+            yield return new object[] { DependencyProperty.UnsetValue, ComparisonMode.TrueOrNonEmpty, false };
         }
     }
 }

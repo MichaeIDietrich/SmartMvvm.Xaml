@@ -53,7 +53,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
                     return value is null;
 
                 case ComparisonMode.NonNull:
-                    return !(value is null);
+                    return value is not null;
 
                 case ComparisonMode.Zero:
                     return AsNumber(value) == 0;
@@ -71,7 +71,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
                     return Equals(value, false);
 
                 case ComparisonMode.TrueOrNonEmpty:
-                    return Equals(value, true) || (Any(value) ?? !Equals(value, null));
+                    return Equals(value, true) || Any(value) == true;
 
                 default:
                     throw new InvalidOperationException($"{value} is not value");
