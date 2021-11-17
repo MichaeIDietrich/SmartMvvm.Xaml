@@ -13,7 +13,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
         private readonly ComparisonMode _comparisonMode;
 
         /// <summary>
-        /// Initializes a new instance of <see cref="If"/>.
+        /// Initializes a new instance of <see cref="Is"/>.
         /// </summary>
         /// <param name="value">Input value.</param>
         /// <param name="comparisonMode">Against what the <paramref name="value"/> is compared to.</param>
@@ -21,6 +21,16 @@ namespace SmartMvvm.Xaml.Markup.Logic
             : base(value)
         {
             _comparisonMode = comparisonMode;
+        }
+
+        /// <summary>
+        /// Initializes a new instance of <see cref="Is"/>.
+        /// </summary>
+        /// <param name="value">Input value to check for either being <c>true</c>, not empty or at least not <c>null</c>.</param>
+        public Is(object value)
+            : base(value)
+        {
+            _comparisonMode = ComparisonMode.TrueOrNonEmpty;
         }
 
         /// <InheritDoc />
@@ -34,16 +44,16 @@ namespace SmartMvvm.Xaml.Markup.Logic
             switch (_comparisonMode)
             {
                 case ComparisonMode.Empty:
-                    return (value as IEnumerable)?.Cast<object>().Any() == false;
+                    return Any(value) == false;
 
                 case ComparisonMode.NonEmpty:
-                    return (value as IEnumerable)?.Cast<object>().Any() == true;
+                    return Any(value) == true;
 
                 case ComparisonMode.Null:
                     return value is null;
 
-                case ComparisonMode.NotNull:
-                    return !(value is null);
+                case ComparisonMode.NonNull:
+                    return value is not null;
 
                 case ComparisonMode.Zero:
                     return AsNumber(value) == 0;
@@ -60,9 +70,17 @@ namespace SmartMvvm.Xaml.Markup.Logic
                 case ComparisonMode.False:
                     return Equals(value, false);
 
+                case ComparisonMode.TrueOrNonEmpty:
+                    return Equals(value, true) || Any(value) == true;
+
                 default:
                     throw new InvalidOperationException($"{value} is not value");
             }
+        }
+
+        private static bool? Any(object value)
+        {
+            return (value as IEnumerable)?.Cast<object>().Any();
         }
 
         /// <summary>
@@ -88,7 +106,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
             /// <summary>
             /// Checks whether the input value is not equal to <c>null</c>.
             /// </summary>
-            NotNull,
+            NonNull,
 
             /// <summary>
             /// Checks whether the input value is equal to 0.
@@ -113,7 +131,12 @@ namespace SmartMvvm.Xaml.Markup.Logic
             /// <summary>
             /// Checks whether the input value is equal to <c>false</c>.
             /// </summary>
-            False
+            False,
+
+            /// <summary>
+            /// Checks whether the input value is either <c>true</c>, not empty or at least not <c>null</c>.
+            /// </summary>
+            TrueOrNonEmpty
         }
     }
 }

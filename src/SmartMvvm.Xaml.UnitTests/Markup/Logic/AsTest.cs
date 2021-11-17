@@ -3,6 +3,7 @@ using SmartMvvm.Xaml.Markup.Logic;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 using Xunit;
 
@@ -90,6 +91,7 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { 1.5, TypeCode.Int16, (short)2 };
             yield return new object[] { "17", TypeCode.Int32, 17 };
             yield return new object[] { "19.5", TypeCode.Single, 19.5f };
+            yield return new object[] { DependencyProperty.UnsetValue, TypeCode.Single, null };
         }
     }
 }

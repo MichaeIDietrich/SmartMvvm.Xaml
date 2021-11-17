@@ -1,5 +1,6 @@
 ﻿using SmartMvvm.Xaml.Markup.Logic;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Data;
 using Xunit;
 
@@ -59,6 +60,8 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { MarkupConstants.StaticTrue, MarkupConstants.StaticFalse, true };
             yield return new object[] { new Binding { Source = true }, true, true };
             yield return new object[] { new Binding { Source = false }, false, false };
+            yield return new object[] { DependencyProperty.UnsetValue, false, false };
+            yield return new object[] { DependencyProperty.UnsetValue, true, true };
         }
 
         public static IEnumerable<object[]> ThreeParametersData()

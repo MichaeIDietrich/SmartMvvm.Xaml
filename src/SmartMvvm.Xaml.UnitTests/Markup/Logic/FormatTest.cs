@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 using Xunit;
 
@@ -106,6 +107,7 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             // format string, first variable, expected result
             yield return new object[] { "{0}", 10, "10" };
             yield return new object[] { "result: {0}", 15, "result: 15" };
+            yield return new object[] { "{0}", DependencyProperty.UnsetValue, "{DependencyProperty.UnsetValue}" };
         }
 
         public static IEnumerable<object[]> TwoVariablesParameterData()

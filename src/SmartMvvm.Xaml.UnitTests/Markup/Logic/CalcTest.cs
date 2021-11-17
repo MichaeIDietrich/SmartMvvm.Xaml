@@ -1,5 +1,6 @@
 ﻿using SmartMvvm.Xaml.Markup.Logic;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Data;
 using Xunit;
 
@@ -117,6 +118,7 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { "{0}", 5, 5 };
             yield return new object[] { "11", 5, 11.0 };
             yield return new object[] { "a * a", 5, 25 };
+            yield return new object[] { "0 * a", DependencyProperty.UnsetValue, 0.0 };
         }
 
         public static IEnumerable<object[]> TwoVariablesParameterData()

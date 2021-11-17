@@ -1,6 +1,7 @@
 ﻿using SmartMvvm.Xaml.Markup;
 using SmartMvvm.Xaml.Markup.Logic;
 using System.Collections.Generic;
+using System.Windows;
 using System.Windows.Data;
 using Xunit;
 
@@ -33,6 +34,8 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { -19, "-20", true };
             yield return new object[] { new Binding { Source = -100 }, new Int(10), false };
             yield return new object[] { "155", new Binding { Source = "144" }, true };
+            yield return new object[] { 10, DependencyProperty.UnsetValue, true };
+            yield return new object[] { DependencyProperty.UnsetValue, 10, false };
         }
     }
 }
