@@ -7,7 +7,7 @@ $branch = & "$PSScriptRoot\common\Get-CurrentBranch.ps1"
 $versionSuffix = & "$PSScriptRoot\common\Get-VersionSuffix.ps1" -branch $branch
 
 
-$props = @($project, '-o', 'artifacts', '-c', 'Release')
+$props = @($project, '-o', 'artifacts', '-c', 'Release', '-p:ContinuousIntegrationBuild=true')
 
 if ($versionSuffix)
 {

@@ -9,20 +9,34 @@
     <DocumentationFile>bin/SmartMvvm.Xaml.xml</DocumentationFile>
 
     <VersionPrefix>2.0.0</VersionPrefix>
-    
+
     <PackageId>SmartMvvm.Xaml</PackageId>
+    <Title>SmartMvvm.Xaml</Title>
     <PackageTags>WPF;MVVM;UI;XAML;databinding;wpf-ui</PackageTags>
     <Copyright>Copyright © 2021 Michael Dietrich</Copyright>
-    <PackageProjectUrl>https://github.com/FrecherxDachs/SmartMvvm.Xaml</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/MichaeIDietrich/SmartMvvm.Xaml</PackageProjectUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/FrecherxDachs/SmartMvvm.Xaml</RepositoryUrl>
+    <RepositoryUrl>https://github.com/MichaeIDietrich/SmartMvvm.Xaml</RepositoryUrl>
     <Authors>Michael Dietrich</Authors>
     <Description>Set of XAML markup utilities for WPF applications.</Description>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All"/>
+  </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFrameworkIdentifier)' == '.NETFramework'">
     <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="readme.md" Pack="true" PackagePath="\" />
   </ItemGroup>
 
 </Project>
