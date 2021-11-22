@@ -59,7 +59,14 @@ namespace SmartMvvm.Xaml.Markup.Logic
                     return Comparer.Equals(values[0], values[1]);
 
                 if (epsilon == null)
+                {
+                    if (values[0] != null && values[1] is Type)
+                    {
+                        // if first parameter is an object and the second a type, check if the object is of the type
+                        return ReferenceEquals(values[0].GetType(), values[1]);
+                    }
                     return Equals(values[0], values[1]);
+                }
 
                 var difference = Math.Abs(AsNumber(values[0]) - AsNumber(values[1]));
 
