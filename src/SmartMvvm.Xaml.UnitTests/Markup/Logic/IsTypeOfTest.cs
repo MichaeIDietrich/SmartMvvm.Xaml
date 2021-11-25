@@ -10,7 +10,7 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
     {
         [Theory]
         [MemberData(nameof(ParametersData))]
-        public void Check_Whether_First_Is_Equal_To_Second(object param1, object param2, bool expected)
+        public void Check_Whether_First_Is_Type_Of_Second(object param1, object param2, bool expected)
         {
             // given
             var sut = new Equal(param1, param2);
