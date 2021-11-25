@@ -98,18 +98,6 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { "abc", new Binding { Source = "abc" }, true };
             yield return new object[] { 155, new Binding { Source = "155" }, false };
             yield return new object[] { 155, "155", false };
-            yield return new object[] { "123", typeof(string), true };
-            yield return new object[] { 5, typeof(int), true };
-            yield return new object[] { 5.6d, typeof(double), true };
-            yield return new object[] { 4, typeof(string), false };
-            yield return new object[] { 3.45d, typeof(int), false };
-            yield return new object[] { "123", typeof(double), false };
-            yield return new object[] { new Binding { Source = "123"}, typeof(string), true };
-            yield return new object[] { new Binding { Source = 5}, typeof(int), true };
-            yield return new object[] { new Binding { Source = 5.6d}, typeof(double), true };
-            yield return new object[] { new Binding { Source = 4}, typeof(string), false };
-            yield return new object[] { new Binding { Source = 3.45d}, typeof(int), false };
-            yield return new object[] { new Binding { Source = "123"}, typeof(double), false };
             yield return new object[] { DependencyProperty.UnsetValue, "155", false };
             yield return new object[] { DependencyProperty.UnsetValue, DependencyProperty.UnsetValue, true };
         }
