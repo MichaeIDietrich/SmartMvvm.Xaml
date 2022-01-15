@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows;
 
 namespace SmartMvvm.Xaml.Markup.Logic
 {
@@ -18,25 +17,13 @@ namespace SmartMvvm.Xaml.Markup.Logic
             : base(left, right, null)
         { }
 
-        /// <summary>
-        /// Gets or sets a value that is used as return value if comparing fails.
-        /// </summary>
-        public object FallbackValue { get; set; } = DependencyProperty.UnsetValue;
-
         /// <InheritDoc />
         protected override object Evaluate(IReadOnlyList<object> values)
         {
-            try
-            {
-                if (values[0] != null && values[1] is Type)
-                    return ReferenceEquals(values[0].GetType(), values[1]);
+            if (values[0] != null && values[1] is Type)
+                return ReferenceEquals(values[0].GetType(), values[1]);
 
-                return false;
-            }
-            catch when (FallbackValue != DependencyProperty.UnsetValue)
-            {
-                return FallbackValue;
-            }
+            return false;
         }
     }
 }
