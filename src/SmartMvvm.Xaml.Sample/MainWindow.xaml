@@ -23,5 +23,8 @@
         <TabItem Header="Master/Detail">
             <sample:ListBoxView />
         </TabItem>
+        <TabItem Header="Type">
+            <sample:EqualTypeView />
+        </TabItem>
     </TabControl>
 </Window>
