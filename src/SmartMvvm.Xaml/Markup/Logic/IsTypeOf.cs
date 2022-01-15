@@ -12,9 +12,9 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// Initializes a new instance of <see cref="IsTypeOf"/>.
         /// </summary>
         /// <param name="left">Input value.</param>
-        /// <param name="right">type.</param>
-        public IsTypeOf(object left, Type right)
-            : base(left, right, null)
+        /// <param name="right">The type to compare.</param>
+        public IsTypeOf(object left, object right)
+            : base(left, right)
         { }
 
         /// <InheritDoc />
