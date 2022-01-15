@@ -13,26 +13,13 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
         public void Check_Whether_First_Is_Type_Of_Second(object param1, object param2, bool expected)
         {
             // given
-            var sut = new Equal(param1, param2);
+            var sut = new IsTypeOf(param1, param2);
 
             // when
             var result = Evaluator.Evaluate(sut);
 
             // then
             Assert.Equal(expected, result);
-        }
-
-        [Fact]
-        public void Use_FallbackValue_On_Error()
-        {
-            // given
-            var sut = new Equal(true, 'a') { Epsilon = 0, FallbackValue = "FALLBACK" };
-
-            // when
-            var result = Evaluator.Evaluate(sut);
-
-            // then
-            Assert.Equal("FALLBACK", result);
         }
 
         public static IEnumerable<object[]> ParametersData()
@@ -51,7 +38,6 @@ namespace SmartMvvm.Xaml.UnitTests.Markup.Logic
             yield return new object[] { new Binding { Source = 3.45d }, typeof(int), false };
             yield return new object[] { new Binding { Source = "123" }, typeof(double), false };
             yield return new[] { DependencyProperty.UnsetValue, "155", false };
-            yield return new[] { DependencyProperty.UnsetValue, DependencyProperty.UnsetValue, true };
         }
     }
 }
