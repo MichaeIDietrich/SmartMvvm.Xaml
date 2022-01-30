@@ -26,5 +26,8 @@
         <TabItem Header="Type">
             <sample:EqualTypeView />
         </TabItem>
+        <TabItem Header="Switch">
+            <sample:SwitchView />
+        </TabItem>
     </TabControl>
 </Window>
