@@ -18,3 +18,8 @@ if ($versionSuffix)
 Update-AppveyorBuild -Version "$version"
 
 dotnet pack $props
+
+if ($LASTEXITCODE)
+{
+    exit $LASTEXITCODE
+}
