@@ -1,4 +1,3 @@
-using System.Windows;
 using System.Windows.Data;
 using SmartMvvm.Xaml.Markup;
 using SmartMvvm.Xaml.UnitTests.Markup.Logic;
@@ -20,19 +19,6 @@ namespace SmartMvvm.Xaml.UnitTests.Markup
         private readonly Case _nullCase = new Case(null, -10);
 
         [Fact]
-        public void Resolve_Value_OneCase_WithBinding()
-        {
-            // given
-            var sut = new Switch(new Binding { Source = new Binding {Source = 1} }, new Case(new Binding {Source = 1}, 10));
-
-            // when
-            var result = Evaluator.Evaluate(sut);
-
-            // then
-            Assert.Equal(10, result);
-        }
-        
-        [Fact]
         public void Resolve_Value_NoDefaultDefined()
         {
             // given
@@ -42,7 +28,7 @@ namespace SmartMvvm.Xaml.UnitTests.Markup
             var result = Evaluator.Evaluate(sut);
 
             // then
-            Assert.Equal(DependencyProperty.UnsetValue, result);
+            Assert.Null(result);
         }
         
         [Fact]
@@ -55,7 +41,7 @@ namespace SmartMvvm.Xaml.UnitTests.Markup
             var result = Evaluator.Evaluate(sut);
 
             // then
-            Assert.Equal(DependencyProperty.UnsetValue, result);
+            Assert.Null(result);
         }
         
         [Theory]
