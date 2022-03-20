@@ -22,7 +22,6 @@
             <ListBoxItem Content="Red" />
             <ListBoxItem Content="Orange" />
             <ListBoxItem Content="Yellow" />
-            <ListBoxItem Content="Custom" />
         </ListBox>
         <StackPanel
             Grid.Row="{If {Greater {Binding ElementName=View, Path=ActualWidth},
@@ -39,26 +38,6 @@
                                          Else={Int 2}}"
             Margin="5">
             <TextBlock Margin="0,0,0,5"
-                       Text="Custom color:" />
-            <ComboBox x:Name="CustomColorPicker"
-                      SelectedIndex="0">
-                <ComboBox.Items>
-                    <SolidColorBrush Color="RosyBrown" />
-                    <SolidColorBrush Color="LightBlue" />
-                    <SolidColorBrush Color="Fuchsia" />
-                </ComboBox.Items>
-                <ComboBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Horizontal">
-                            <Rectangle Fill="{Binding }"
-                                       Width="16"
-                                       Height="16"
-                                       Margin="2" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ComboBox.ItemTemplate>
-            </ComboBox>
-            <TextBlock Margin="0,0,0,5"
                        Text="Selected color:" />
             <Border BorderBrush="Black"
                     BorderThickness="0.5"
@@ -72,7 +51,6 @@
                                 {Case {Int 2}, {x:Static Brushes.Red}},
                                 {Case {Int 3}, {x:Static Brushes.Orange}},
                                 {Case {Int 4}, {x:Static Brushes.Yellow}},
-                                {Case {Int 5}, {Binding ElementName=CustomColorPicker, Path=SelectedItem.Content}},
                                 Default={x:Static Brushes.Transparent}}" />
             </Border>
         </StackPanel>
