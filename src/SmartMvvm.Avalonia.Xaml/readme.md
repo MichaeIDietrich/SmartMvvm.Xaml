@@ -39,3 +39,6 @@ Samples
                            Then={x:Static Brushes.Red},
                            Else={x:Static Brushes.Black}}" />
 ```
+
+Looking for WPF?
+Go for [SmartMvvm.Xaml](https://www.nuget.org/packages/SmartMvvm.Xaml)

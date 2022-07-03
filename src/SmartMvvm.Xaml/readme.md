@@ -39,3 +39,6 @@ Samples
                            Then={x:Static Brushes.Red},
                            Else={x:Static Brushes.Black}}" />
 ```
+
+Looking for Avalonia UI?
+Go for [SmartMvvm.Avalonia.Xaml](https://www.nuget.org/packages/SmartMvvm.Avalonia.Xaml)
