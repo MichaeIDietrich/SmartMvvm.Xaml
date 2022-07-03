@@ -1,6 +1,8 @@
-# SmartMvvm.Xaml
+# SmartMvvm.Xaml / SmartMvvm.Avalonia.Xaml
 
-[![NuGet](https://img.shields.io/nuget/v/SmartMvvm.Xaml.svg)](https://www.nuget.org/packages/SmartMvvm.Xaml/)
+[![NuGet](https://img.shields.io/nuget/v/SmartMvvm.Xaml.svg?label=nuget%20(WPF))](https://www.nuget.org/packages/SmartMvvm.Xaml/)
+[![NuGet](https://img.shields.io/nuget/v/SmartMvvm.Avalonia.Xaml.svg?label=nuget%20(Avalonia))](https://www.nuget.org/packages/SmartMvvm.Avalonia.Xaml/)
+
 [![Build status (master)](https://ci.appveyor.com/api/projects/status/mw21p6jogh4v4cgh/branch/master?svg=true&passingText=master%20-%20passing&pendingText=master%20-%20pending&failingText=master%20-%20FAILED)](https://ci.appveyor.com/project/MichaeIDietrich/SmartMvvm.Xaml/branch/master)
 [![Build status (develop)](https://ci.appveyor.com/api/projects/status/mw21p6jogh4v4cgh/branch/develop?svg=true&passingText=develop%20-%20passing&pendingText=develop%20-%20pending&failingText=develop%20-%20FAILED)](https://ci.appveyor.com/project/MichaeIDietrich/SmartMvvm.Xaml/branch/develop)
 

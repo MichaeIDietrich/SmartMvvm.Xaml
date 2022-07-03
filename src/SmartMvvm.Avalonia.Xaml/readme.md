@@ -17,7 +17,7 @@ Samples
 
 ```xml
 <!-- combine multiple Bindings and automatically convert the result -->
-<ProgressBar Visibility="{And {Binding IsLoading}, {Binding IsConnected}}" />
+<ProgressBar IsVisible="{And {Binding IsLoading}, {Binding IsConnected}}" />
 
 <!-- evaluate mathematical expressions and format the result -->
 <TextBlock Text="{Format 'Results in {0} cells', 
