@@ -1,16 +1,16 @@
 Introduction
 -------------
 
-SmartMvvm.Xaml contains a set of useful markup extensions and other objects to simplify writing WPF XAML code without the need of code behind or unnecessary UI behavior logic in view model code.
+SmartMvvm.Avalonia.Xaml contains a set of useful markup extensions and other objects to simplify writing Avalonia XAML code without the need of code behind or unnecessary UI behavior logic in view model code.
 
- - Supported are projects using at least .NET Framework 4.5 or at least .NET Core 3.1.
+ - Supported are projects using at least .NET Standard 2.0.
 
 Getting Started
 -------------------
 
-To use these XAML utilities in your project, simply install the [SmartMvvm.Xaml](https://www.nuget.org/packages/SmartMvvm.Xaml) NuGet package to your project.
+To use these XAML utilities in your project, simply install the [SmartMvvm.Avalonia.Xaml](https://www.nuget.org/packages/SmartMvvm.Avalonia.Xaml) NuGet package to your project.
 
-Check out the [sample application](https://github.com/MichaeIDietrich/SmartMvvm.Xaml/tree/develop/src/SmartMvvm.Xaml.Sample) to see how you can use these utilities in your project.
+Check out the [sample application](https://github.com/MichaeIDietrich/SmartMvvm.Xaml/tree/develop/src/SmartMvvm.Avalonia.Xaml.Sample) to see how you can use these utilities in your project.
 
 Samples
 -------
