@@ -219,9 +219,9 @@ public sealed class Switch : LogicalBase
     /// <summary>
     /// Gets or sets the <see cref="IBinding" /> used a s switch value.
     /// </summary>
-    public IBinding Binding
+    public object Binding
     {
-        get => Items[0] as IBinding;
+        get => Items[0];
         set => Items[0] = value;
     }
 

@@ -93,18 +93,9 @@ public class Format : LogicalBase
     /// <summary>
     /// Gets or sets the format string that is used for formatting the input values.
     /// </summary>
-    public string FormatString
+    public object FormatString
     {
-        get => this[0] as string;
-        set => this[0] = value;
-    }
-
-    /// <summary>
-    /// Gets or sets a binding that points to the format string that is used for formatting the input values.
-    /// </summary>
-    public IBinding FormatBind
-    {
-        get => this[0] as IBinding;
+        get => this[0];
         set => this[0] = value;
     }
 
