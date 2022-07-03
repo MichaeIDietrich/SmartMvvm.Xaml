@@ -1,0 +1,77 @@
+﻿<UserControl x:Class="SmartMvvm.Avalonia.Xaml.Sample.SwitchView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Name="View">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,5"
+                    Orientation="Horizontal">
+            <TextBlock Margin="0,0,5,0"
+                       VerticalAlignment="Center"
+                       Text="Selected color:" />
+            <Border Width="20"
+                    Height="20"
+                    HorizontalAlignment="Left"
+                    BorderBrush="Black"
+                    BorderThickness="0.5">
+
+                <Rectangle Fill="{Switch {Binding ElementName=ListBox, Path=SelectedIndex},
+                                         {Case {Int 0},
+                                               {x:Static Brushes.Blue}},
+                                         {Case {Int 1},
+                                               {x:Static Brushes.Green}},
+                                         {Case {Int 2},
+                                               {x:Static Brushes.Red}},
+                                         {Case {Int 3},
+                                               {x:Static Brushes.Orange}},
+                                         {Case {Int 4},
+                                               {x:Static Brushes.Yellow}},
+                                         {Case {Int 5},
+                                               {Binding ElementName=CustomColorPicker, Path=SelectedItem}}}" />
+            </Border>
+        </StackPanel>
+
+        <ListBox x:Name="ListBox" 
+                 Grid.Row="1">
+            <ListBoxItem Content="Blue" />
+            <ListBoxItem Content="Green" />
+            <ListBoxItem Content="Red" />
+            <ListBoxItem Content="Orange" />
+            <ListBoxItem Content="Yellow" />
+            <ListBoxItem Padding="12,6">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" 
+                               Margin="0,0,10,0" 
+                               Text="Custom:" />
+                    <ComboBox x:Name="CustomColorPicker" 
+                              Height="26"
+                              IsEnabled="{Equal {Binding ElementName=ListBox, Path=SelectedIndex},
+                                                {Int 5}}"
+                              SelectedIndex="0">
+                        <ComboBox.Items>
+                            <SolidColorBrush Color="RosyBrown" />
+                            <SolidColorBrush Color="LightBlue" />
+                            <SolidColorBrush Color="Fuchsia" />
+                            <SolidColorBrush Color="Lime" />
+                            <SolidColorBrush Color="Tomato" />
+                        </ComboBox.Items>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                    <Rectangle Width="32"
+                                               Height="8"
+                                               Margin="2"
+                                               Fill="{Binding}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </ListBoxItem>
+        </ListBox>
+
+    </Grid>
+</UserControl>
