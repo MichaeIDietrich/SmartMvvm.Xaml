@@ -44,7 +44,15 @@
                              Else={If {Less {Use Width},
                                             {Use Height}},
                                       Then='Width is less than Height',
-                                      Else='Width is greater than Height'}}" />
+                                      Else='Width is greater than Height'}}"
+                   Foreground="{If {Equal {Use Width},
+                                          {Use Height},
+                                          Epsilon=10},
+                                   Then={x:Static Brushes.Black},
+                                   Else={If {Less {Use Width},
+                                                  {Use Height}},
+                                            Then={x:Static Brushes.Green},
+                                            Else={x:Static Brushes.Blue}}}" />
         <TextBlock Text="{Format Altogether: {0} pixels.,
                                  {Calc 'x * y',
                                        {Use Width},

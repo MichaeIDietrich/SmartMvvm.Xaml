@@ -21,6 +21,13 @@ public class Calc : LogicalBase
     /// <summary>
     /// Initializes a new in instance of <see cref="Calc"/>.
     /// </summary>
+    public Calc()
+        : base(null, null, null)
+    { }
+
+    /// <summary>
+    /// Initializes a new in instance of <see cref="Calc"/>.
+    /// </summary>
     /// <param name="expression">Mathematical expression to evaluate.</param>
     public Calc(string expression)
         : base(expression, null, null)
@@ -109,9 +116,9 @@ public class Calc : LogicalBase
     /// <summary>
     /// Gets or sets the mathematical expression used for evaluation.
     /// </summary>
-    public string Expression
+    public object Expression
     {
-        get => this[0] as string;
+        get => this[0];
         set => this[0] = value;
     }
 
@@ -130,33 +137,6 @@ public class Calc : LogicalBase
     public object Max
     {
         get => this[2];
-        set => this[2] = value;
-    }
-
-    /// <summary>
-    /// Gets or sets the binding that points to the mathematical expression used for evaluation.
-    /// </summary>
-    public IBinding ExpressionBind
-    {
-        get => this[0] as IBinding;
-        set => this[0] = value;
-    }
-
-    /// <summary>
-    /// Gets or sets the binding that points to a value that used to define the lower limit for the result.
-    /// </summary>
-    public IBinding MinBind
-    {
-        get => this[1] as IBinding;
-        set => this[1] = value;
-    }
-
-    /// <summary>
-    /// Gets or sets the binding that points to a value that used to define the upper limit for the result.
-    /// </summary>
-    public IBinding MaxBind
-    {
-        get => this[2] as IBinding;
         set => this[2] = value;
     }
 

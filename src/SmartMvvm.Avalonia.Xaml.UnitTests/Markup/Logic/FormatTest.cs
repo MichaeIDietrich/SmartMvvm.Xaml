@@ -30,7 +30,7 @@ namespace SmartMvvm.Avalonia.Xaml.UnitTests.Markup.Logic
             var sut = new Format(first)
             {
                 Culture = CultureInfo.InvariantCulture,
-                FormatBind = new Binding { Source = format }
+                FormatString = new Binding { Source = format }
             };
 
             // when
