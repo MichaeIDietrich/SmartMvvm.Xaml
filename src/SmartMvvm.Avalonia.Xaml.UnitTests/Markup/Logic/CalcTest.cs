@@ -84,9 +84,9 @@ namespace SmartMvvm.Avalonia.Xaml.UnitTests.Markup.Logic
             // given
             var sut = new Calc(string.Empty)
             {
-                ExpressionBind = new Binding { Source = expression },
-                MinBind = new Binding { Source = min },
-                MaxBind = new Binding { Source = max }
+                Expression = new Binding { Source = expression },
+                Min = new Binding { Source = min },
+                Max = new Binding { Source = max }
             };
 
             // when

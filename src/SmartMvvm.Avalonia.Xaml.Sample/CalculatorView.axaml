@@ -52,8 +52,8 @@
                                  {Calc {Binding ElementName=NumberBoxX, Path=Text},
                                        {Binding ElementName=NumberBoxY, Path=Text},
                                        {Binding ElementName=NumberBoxZ, Path=Text},
-                                       ExpressionBind={Binding ElementName=ExpressionBox,
-                                                               Path=Text},
+                                       Expression={Binding ElementName=ExpressionBox,
+                                                           Path=Text},
                                        FallbackValue='Invalid expression'}}" />
     </StackPanel>
 </UserControl>

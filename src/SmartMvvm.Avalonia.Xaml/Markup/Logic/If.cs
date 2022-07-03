@@ -37,29 +37,11 @@ public class If : LogicalBase
     }
 
     /// <summary>
-    /// Gets or sets a binding that points to a value that is returned if the given condition evaluates to <c>true</c>.
-    /// </summary>
-    public IBinding ThenBind
-    {
-        get => this[1] as IBinding;
-        set => this[1] = value;
-    }
-
-    /// <summary>
     /// Gets or sets a value that is returned if the given condition evaluates to <c>false</c>.
     /// </summary>
     public object Else
     {
         get => this[2];
-        set => this[2] = value;
-    }
-
-    /// <summary>
-    /// Gets or sets a binding that points to a value that is returned if the given condition evaluates to <c>false</c>.
-    /// </summary>
-    public IBinding ElseBind
-    {
-        get => this[2] as IBinding;
         set => this[2] = value;
     }
 

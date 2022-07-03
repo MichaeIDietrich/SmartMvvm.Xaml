@@ -65,7 +65,7 @@ namespace SmartMvvm.Avalonia.Xaml.UnitTests.Markup.Logic
         public void True_Condition_Returns_ThenBinding()
         {
             // given
-            var sut = new If(true) { ThenBind = new Binding { Source = "RESULT" } };
+            var sut = new If(true) { Then = new Binding { Source = "RESULT" } };
 
             // when
             var result = Evaluator.Evaluate(sut);
@@ -78,7 +78,7 @@ namespace SmartMvvm.Avalonia.Xaml.UnitTests.Markup.Logic
         public void False_Condition_Retuns_ElseBinding()
         {
             // given
-            var sut = new If(false) { ElseBind = new Binding { Source = "RESULT" } };
+            var sut = new If(false) { Else = new Binding { Source = "RESULT" } };
 
             // when
             var result = Evaluator.Evaluate(sut);

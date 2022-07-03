@@ -54,29 +54,11 @@ public class Thickness : LogicalBase
     }
 
     /// <summary>
-    /// Gets or sets a binding that points to the value that is used for the width of the left side of the bounding rectangle.
-    /// </summary>
-    public IBinding LeftBind
-    {
-        get => this[0] as IBinding;
-        set => this[0] = value;
-    }
-
-    /// <summary>
     /// Gets or sets the width of the upper side of the bounding rectangle.
     /// </summary>
     public object Top
     {
         get => this[1];
-        set => this[1] = value;
-    }
-
-    /// <summary>
-    /// Gets or sets a binding that points to the value that is used for the width of the upper side of the bounding rectangle.
-    /// </summary>
-    public IBinding TopBind
-    {
-        get => this[1] as IBinding;
         set => this[1] = value;
     }
 
@@ -90,29 +72,11 @@ public class Thickness : LogicalBase
     }
 
     /// <summary>
-    /// Gets or sets a binding that points to the value that is used for the width of the right side of the bounding rectangle.
-    /// </summary>
-    public IBinding RightBind
-    {
-        get => this[2] as IBinding;
-        set => this[2] = value;
-    }
-
-    /// <summary>
     /// Gets or sets the width of the lower side of the bounding rectangle.
     /// </summary>
     public object Bottom
     {
         get => this[3];
-        set => this[3] = value;
-    }
-
-    /// <summary>
-    /// Gets or sets a binding that points to the value that is used for the width of the lower side of the bounding rectangle.
-    /// </summary>
-    public IBinding BottomBind
-    {
-        get => this[3] as IBinding;
         set => this[3] = value;
     }
 

@@ -105,10 +105,10 @@ namespace SmartMvvm.Avalonia.Xaml.UnitTests.Markup.Logic
             // given
             var sut = new Thickness
             {
-                LeftBind = new Binding { Source = left },
-                TopBind = new Binding { Source = top },
-                RightBind = new Binding { Source = right },
-                BottomBind = new Binding { Source = bottom },
+                Left = new Binding { Source = left },
+                Top = new Binding { Source = top },
+                Right = new Binding { Source = right },
+                Bottom = new Binding { Source = bottom },
             };
 
             // when
