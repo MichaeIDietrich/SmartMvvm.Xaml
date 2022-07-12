@@ -7,24 +7,8 @@
     <TargetFrameworks>net452;netcoreapp3.1</TargetFrameworks>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <DocumentationFile>bin/SmartMvvm.Xaml.xml</DocumentationFile>
-
-    <VersionPrefix>2.0.0</VersionPrefix>
-
-    <PackageId>SmartMvvm.Xaml</PackageId>
-    <Title>SmartMvvm.Xaml</Title>
     <PackageTags>WPF;MVVM;UI;XAML;databinding;wpf-ui</PackageTags>
-    <Copyright>Copyright © 2021 Michael Dietrich</Copyright>
-    <PackageProjectUrl>https://github.com/MichaeIDietrich/SmartMvvm.Xaml</PackageProjectUrl>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/MichaeIDietrich/SmartMvvm.Xaml</RepositoryUrl>
-    <Authors>Michael Dietrich</Authors>
     <Description>Set of XAML markup utilities for WPF applications.</Description>
-    <PackageReadmeFile>readme.md</PackageReadmeFile>
-    <PublishRepositoryUrl>true</PublishRepositoryUrl>
-    <EmbedUntrackedSources>true</EmbedUntrackedSources>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>

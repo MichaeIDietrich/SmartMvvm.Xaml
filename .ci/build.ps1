@@ -1,23 +1,37 @@
-$project = "$PSScriptRoot\..\src\SmartMvvm.Xaml\SmartMvvm.Xaml.csproj"
+$sharedBuildProps = "$PSScriptRoot\..\src\Directory.Build.props"
+$wpfProject = "$PSScriptRoot\..\src\SmartMvvm.Xaml\SmartMvvm.Xaml.csproj"
+$avaloniaProject = "$PSScriptRoot\..\src\SmartMvvm.Avalonia.Xaml\SmartMvvm.Avalonia.Xaml.csproj"
 
 
-$version = & "$PSScriptRoot\common\Get-VersionPrefix.ps1" -projectFilePath $project
+$version = & "$PSScriptRoot\common\Get-VersionPrefix.ps1" -projectFilePath $sharedBuildProps
 
 $branch = & "$PSScriptRoot\common\Get-CurrentBranch.ps1"
 $versionSuffix = & "$PSScriptRoot\common\Get-VersionSuffix.ps1" -branch $branch
 
 
-$props = @($project, '-o', 'artifacts', '-c', 'Release', '-p:ContinuousIntegrationBuild=true')
+$wpfProjectProps = @($wpfProject, '-o', 'artifacts', '-c', 'Release', '-p:ContinuousIntegrationBuild=true')
+$avaloniaProjectProps = @($avaloniaProject, '-o', 'artifacts', '-c', 'Release', '-p:ContinuousIntegrationBuild=true')
 
 if ($versionSuffix)
 {
-    $props = $props += "-p:VersionSuffix=$versionSuffix"
+    $wpfProjectProps += "-p:VersionSuffix=$versionSuffix"
+    $avaloniaProjectProps += "-p:VersionSuffix=$versionSuffix"
     $version = "$version-$versionSuffix"
 }
 
-Update-AppveyorBuild -Version "$version"
+if (Test-Path env:APPVEYOR)
+{
+    Update-AppveyorBuild -Version "$version"
+}
 
-dotnet pack $props
+dotnet pack $wpfProjectProps
+
+if ($LASTEXITCODE)
+{
+    exit $LASTEXITCODE
+}
+
+dotnet pack $avaloniaProjectProps
 
 if ($LASTEXITCODE)
 {
