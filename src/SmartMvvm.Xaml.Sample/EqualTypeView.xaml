@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="SmartMvvm.Xaml.Sample.EqualTypeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             d:DesignHeight="300" 
+             d:DesignWidth="300"
+             mc:Ignorable="d">
+    <StackPanel>
+        <ListBox x:Name="ListBox"
+                 SelectedIndex="0">
+            <system:String>A string</system:String>
+            <system:Int32>12345</system:Int32>
+            <system:String>Another string</system:String>
+            <system:Int32>1234567</system:Int32>
+        </ListBox>
+        <TextBlock Text="{If {IsTypeOf {Binding ElementName=ListBox, Path=SelectedItem}, {x:Type system:String}},
+         Then='A string is selected',
+         Else='An int is selected'}" />
+    </StackPanel>
+</UserControl>
