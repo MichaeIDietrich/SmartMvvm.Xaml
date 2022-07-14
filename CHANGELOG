@@ -1,5 +1,19 @@
-SmartMvvm.Xaml Changelog
+SmartMvvm.Xaml + SmartMvvm.Avalonia.Xaml Changelog
 ========================
+
+v2.0
+------
+
+- Breaking: Raised lower limit for supported .NET Core version to 3.1.
+- Extended `{Use}` markup extension to also support `{StaticResource}` markup extension as constructor parameter. 
+  (while this seems to be more boilerplate code tooling like R# will understand these as references)
+- Added a new convinient constructor to `{Is}` markup extension that checks the passed value for being either true or not empty.
+- Breaking: Unified naming for comparison modes of `{Is}` markup extension to always use `Non` instead of `Not` for negative naming.
+- Breaking: Minor adjustment to several markup extension to behave more intuitive. (see commit 947d07c899346ff65e86adf4334b68a4eb11b5b2)
+- Added `SourceLink` support to NuGet.
+- Introduced a new `{IsTypeOf}` markup extension for simply checking a value for a specific type.
+- Introduced a new `{Switch}` markup extension for checking a value for multiple cases such as the `switch` keyword in C#.
+- Ported this NuGet over to Avalonia as a separate NuGet. (SmartMvvm.Avalonia.Xaml)
 
 v1.2.0
 ------
@@ -13,7 +27,7 @@ v1.1.0
 
  - Fixed a bug where any logic based markup extension failed if there wasn't at least one `Binding` in use.
  - Fixed a bug where `{Less}` markup extension mistakenly also succeeded if both input values where equal to each other.
- - Changed the behavior that the range defined by the `Epsilon` property for the `{Equal}` markup extension now also includes the range boundaries.
+ - Breaking: Changed the behavior that the range defined by the `Epsilon` property for the `{Equal}` markup extension now also includes the range boundaries.
    (e.g. 2 is now equal to 3 if `Epsilon` is set to 1)
  - Introduced a new `{Is}` markup extension that can be used to check for a specific property of a given value.
 
@@ -21,9 +35,9 @@ v1.0.0
 ------
 
  - First real release (no pre-release tag any more).
- - `{If}` markup extension now returns `boolean` values rather than `null`, if `Then` and `Else` properties are not set.
+ - Breaking: `{If}` markup extension now returns `boolean` values rather than `null`, if `Then` and `Else` properties are not set.
  - Introduced new constructor to `{If}` markup extension to provide a convenient way of comparison two input values.
- - Removed old constructor from `{If}` markup extension to prevent wrong constructor resolution from XAML markup parser.
+ - Breaking: Removed old constructor from `{If}` markup extension to prevent wrong constructor resolution from XAML markup parser.
 
 v0.9.0
 ------
