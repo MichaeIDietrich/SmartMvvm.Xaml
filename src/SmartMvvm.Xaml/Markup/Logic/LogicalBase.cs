@@ -14,15 +14,23 @@ namespace SmartMvvm.Xaml.Markup.Logic
     /// </summary>
     public abstract class LogicalBase : MarkupExtension
     {
-        private readonly object[] _items;
-
         /// <summary>
         /// Creates a new instance of <see cref="LogicalBase"/>.
         /// </summary>
         /// <param name="items">Contains the input values.</param>
         protected LogicalBase(params object[] items)
         {
-            _items = items;
+            Items = items;
+        }
+
+        /// <summary>
+        /// Creates a new instance of <see cref="LogicalBase"/>.
+        /// </summary>
+        /// <param name="items">Contains the input values.</param>
+        /// <remarks>Use this constructor if the list of items can be dynamic.</remarks>
+        protected LogicalBase(IList<object> items)
+        {
+            Items = items;
         }
 
         /// <summary>
@@ -31,20 +39,25 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// <param name="index">Index of the input value.</param>
         protected object this[int index]
         {
-            get => _items[index];
-            set => _items[index] = value;
+            get => Items[index];
+            set => Items[index] = value;
         }
+
+        /// <summary>
+        /// Gets access to the underlying input values.
+        /// </summary>
+        protected IList<object> Items { get; private set; }
 
         /// <summary>
         /// Method that is invoked whenever any dependency (e.g. Binding) has changed to calculate the new resulting value.
         /// </summary>
-        /// <param name="values">Represents the evaluated values for the given <see cref="_items"/>.</param>
+        /// <param name="values">Represents the evaluated values for the given <see cref="Items"/>.</param>
         /// <returns>The result of the operation.</returns>
         protected abstract object Evaluate(IReadOnlyList<object> values);
 
         private void Dispatch(Processor processor, IServiceProvider serviceProvider)
         {
-            foreach (var item in _items)
+            foreach (var item in Items)
             {
                 switch (item)
                 {
@@ -90,8 +103,17 @@ namespace SmartMvvm.Xaml.Markup.Logic
         /// <param name="value">The value to convert.</param>
         protected static dynamic AsNumber(object value)
         {
-            if (value is string)
-                value = Convert.ToDouble(value);
+            if (value is null)
+                return 0;
+
+            var typeCode = Type.GetTypeCode(value.GetType());
+
+            // sort out null, Object, DBNull since those cannot be casted to double
+            if (typeCode < TypeCode.Boolean)
+                return 0.0;
+
+            if (typeCode == TypeCode.String)
+                return Convert.ToDouble(value);
 
             return value;
         }
@@ -221,7 +243,7 @@ namespace SmartMvvm.Xaml.Markup.Logic
 
                 var values = new List<object>();
 
-                for (var i = 0; i < logical._items.Length; i++)
+                for (var i = 0; i < logical.Items.Count; i++)
                     values.Insert(0, stack.Pop());
 
                 return logical.Evaluate(values);

@@ -1,0 +1,106 @@
+﻿<UserControl x:Class="SmartMvvm.Xaml.Sample.SwitchView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             x:Name="View"
+             d:DesignHeight="450"
+             d:DesignWidth="800"
+             mc:Ignorable="d">
+
+    <UserControl.Resources>
+        <DrawingBrush x:Key="NoneBrush"
+                      Stretch="None"
+                      TileMode="Tile"
+                      Viewport="0,0,8,8"
+                      ViewportUnits="Absolute">
+            <DrawingBrush.Drawing>
+                <GeometryDrawing Brush="Gray">
+                    <GeometryDrawing.Geometry>
+                        <GeometryGroup>
+                            <RectangleGeometry Rect="0,0,4,4" />
+                            <RectangleGeometry Rect="4,4,4,4" />
+                        </GeometryGroup>
+                    </GeometryDrawing.Geometry>
+                </GeometryDrawing>
+            </DrawingBrush.Drawing>
+        </DrawingBrush>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,5"
+                    Orientation="Horizontal">
+            <TextBlock Margin="0,0,5,0"
+                       VerticalAlignment="Center"
+                       Text="Selected color:" />
+            <Border Width="20"
+                    Height="20"
+                    HorizontalAlignment="Left"
+                    BorderBrush="Black"
+                    BorderThickness="0.5">
+                <Rectangle Fill="{Switch {Binding ElementName=ListBox, Path=SelectedIndex},
+                                         {Case {Int 0},
+                                               {x:Static Brushes.Blue}},
+                                         {Case {Int 1},
+                                               {x:Static Brushes.Green}},
+                                         {Case {Int 2},
+                                               {x:Static Brushes.Red}},
+                                         {Case {Int 3},
+                                               {x:Static Brushes.Orange}},
+                                         {Case {Int 4},
+                                               {x:Static Brushes.Yellow}},
+                                         {Case {Int 5},
+                                               {Binding ElementName=CustomColorPicker, Path=SelectedItem}},
+                                         Default={StaticResource NoneBrush}}" />
+            </Border>
+        </StackPanel>
+
+        <ListBox x:Name="ListBox"
+                 Grid.Row="1">
+            <ListBoxItem Content="Blue" />
+            <ListBoxItem Content="Green" />
+            <ListBoxItem Content="Red" />
+            <ListBoxItem Content="Orange" />
+            <ListBoxItem Content="Yellow" />
+            <ListBoxItem>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Custom:" />
+                    <ComboBox x:Name="CustomColorPicker"
+                              Margin="5,0,0,0"
+                              IsEnabled="{Equal {Binding ElementName=ListBox, Path=SelectedIndex},
+                                                {Int 5}}"
+                              SelectedIndex="0">
+                        <ComboBox.Items>
+                            <SolidColorBrush Color="RosyBrown" />
+                            <SolidColorBrush Color="LightBlue" />
+                            <SolidColorBrush Color="Fuchsia" />
+                            <SolidColorBrush Color="Lime" />
+                            <SolidColorBrush Color="Tomato" />
+                        </ComboBox.Items>
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <Rectangle Width="32"
+                                               Height="8"
+                                               Margin="2"
+                                               Fill="{Binding}" />
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+            </ListBoxItem>
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="3,4" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
+    </Grid>
+</UserControl>

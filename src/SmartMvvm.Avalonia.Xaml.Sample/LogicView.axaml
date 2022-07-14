@@ -1,0 +1,226 @@
+﻿<UserControl x:Class="SmartMvvm.Avalonia.Xaml.Sample.LogicView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <UserControl.Styles>
+
+        <Style Selector="CheckBox">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+        </Style>
+
+        <Style Selector="Border.WireStyle">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Width" Value="3" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Background" Value="{If {Binding}, Then={x:Static Brushes.Indigo}, Else={x:Static Brushes.LightGray}}" />
+        </Style>
+
+        <Style Selector="Label.GateStyle">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="Background" Value="LightGray" />
+            <Setter Property="Padding" Value="3" />
+            <Setter Property="Margin" Value="0,2" />
+        </Style>
+
+    </UserControl.Styles>
+
+    <UserControl.Resources>
+
+        <Var x:Key="First"
+             Value="{Bool False}" />
+        <Var x:Key="Second"
+             Value="{Bool False}" />
+        <Var x:Key="Third"
+             Value="{Bool True}" />
+        <Var x:Key="Fourth"
+             Value="{Bool True}" />
+        <Var x:Key="Fifth"
+             Value="{Bool False}" />
+        <Var x:Key="Sixth"
+             Value="{Bool False}" />
+        <Var x:Key="Seventh"
+             Value="{Bool True}" />
+        <Var x:Key="Eighth"
+             Value="{Bool True}" />
+
+        <Var x:Key="And"
+             Value="{And {Use First},
+                         {Use Second}}" />
+        <Var x:Key="Nor"
+             Value="{Not {Or {Use Third},
+                             {Use Fourth}}}" />
+        <Var x:Key="Nand"
+             Value="{Not {And {Use Fifth},
+                              {Use Sixth}}}" />
+        <Var x:Key="Xnor"
+             Value="{Equal {Use Seventh},
+                           {Use Eighth}}" />
+
+        <Var x:Key="Xor"
+             Value="{Not {Equal {Use And},
+                                {Use Nor}}}" />
+        <Var x:Key="Or"
+             Value="{Or {Use Nand},
+                        {Use Xnor}}" />
+
+        <Var x:Key="And2"
+             Value="{And {Use Xor},
+                         {Use Or}}" />
+
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="30" />
+            <ColumnDefinition Width="30" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <CheckBox Grid.Row="0"
+                  Grid.Column="0"
+                  IsChecked="{Use First}" />
+        <CheckBox Grid.Row="0"
+                  Grid.Column="1"
+                  IsChecked="{Use Second}" />
+        <CheckBox Grid.Row="0"
+                  Grid.Column="2"
+                  IsChecked="{Use Third}" />
+        <CheckBox Grid.Row="0"
+                  Grid.Column="3"
+                  IsChecked="{Use Fourth}" />
+        <CheckBox Grid.Row="0"
+                  Grid.Column="4"
+                  IsChecked="{Use Fifth}" />
+        <CheckBox Grid.Row="0"
+                  Grid.Column="5"
+                  IsChecked="{Use Sixth}" />
+        <CheckBox Grid.Row="0"
+                  Grid.Column="6"
+                  IsChecked="{Use Seventh}" />
+        <CheckBox Grid.Row="0"
+                  Grid.Column="7"
+                  IsChecked="{Use Eighth}" />
+
+        <Border Grid.Row="1"
+                Grid.Column="0"
+                DataContext="{Use First}"
+                Classes="WireStyle" />
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                DataContext="{Use Second}"
+                Classes="WireStyle" />
+        <Border Grid.Row="1"
+                Grid.Column="2"
+                DataContext="{Use Third}"
+                Classes="WireStyle" />
+        <Border Grid.Row="1"
+                Grid.Column="3"
+                DataContext="{Use Fourth}"
+                Classes="WireStyle" />
+
+        <Border Grid.Row="1"
+                Grid.Column="4"
+                DataContext="{Use Fifth}"
+                Classes="WireStyle" />
+        <Border Grid.Row="1"
+                Grid.Column="5"
+                DataContext="{Use Sixth}"
+                Classes="WireStyle" />
+        <Border Grid.Row="1"
+                Grid.Column="6"
+                DataContext="{Use Seventh}"
+                Classes="WireStyle" />
+        <Border Grid.Row="1"
+                Grid.Column="7"
+                DataContext="{Use Eighth}"
+                Classes="WireStyle" />
+
+        <Label Grid.Row="2"
+               Grid.Column="0"
+               Grid.ColumnSpan="2"
+               Content="AND"
+               Classes="GateStyle" />
+        <Border Grid.Row="3"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                DataContext="{Use And}"
+                Classes="WireStyle" />
+        <Label Grid.Row="2"
+               Grid.Column="2"
+               Grid.ColumnSpan="2"
+               Content="NOR"
+               Classes="GateStyle" />
+        <Border Grid.Row="3"
+                Grid.Column="2"
+                Grid.ColumnSpan="2"
+                DataContext="{Use Nor}"
+                Classes="WireStyle" />
+        <Label Grid.Row="2"
+               Grid.Column="4"
+               Grid.ColumnSpan="2"
+               Content="NAND"
+               Classes="GateStyle" />
+        <Border Grid.Row="3"
+                Grid.Column="4"
+                Grid.ColumnSpan="2"
+                DataContext="{Use Nand}"
+                Classes="WireStyle" />
+        <Label Grid.Row="2"
+               Grid.Column="6"
+               Grid.ColumnSpan="2"
+               Content="XNOR"
+               Classes="GateStyle" />
+        <Border Grid.Row="3"
+                Grid.Column="6"
+                Grid.ColumnSpan="2"
+                DataContext="{Use Xnor}"
+                Classes="WireStyle" />
+
+        <Label Grid.Row="4"
+               Grid.Column="0"
+               Grid.ColumnSpan="4"
+               Content="XOR"
+               Classes="GateStyle" />
+        <Border Grid.Row="5"
+                Grid.Column="0"
+                Grid.ColumnSpan="4"
+                DataContext="{Use Xor}"
+                Classes="WireStyle" />
+        <Label Grid.Row="4"
+               Grid.Column="4"
+               Grid.ColumnSpan="4"
+               Content="OR"
+               Classes="GateStyle" />
+        <Border Grid.Row="5"
+                Grid.Column="4"
+                Grid.ColumnSpan="4"
+                DataContext="{Use Or}"
+                Classes="WireStyle" />
+
+        <Label Grid.Row="6"
+               Grid.Column="0"
+               Grid.ColumnSpan="8"
+               Content="AND"
+               Classes="GateStyle" />
+        <Border Grid.Row="7"
+                Grid.Column="0"
+                Grid.ColumnSpan="8"
+                DataContext="{Use And2}"
+                Classes="WireStyle" />
+    </Grid>
+</UserControl>

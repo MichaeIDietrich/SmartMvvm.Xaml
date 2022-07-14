@@ -1,13 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29519.87
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMvvm.Xaml.Sample", "SmartMvvm.Xaml.Sample\SmartMvvm.Xaml.Sample.csproj", "{6A844C4B-42C0-4AB0-8D1E-C22F11613041}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMvvm.Xaml", "SmartMvvm.Xaml\SmartMvvm.Xaml.csproj", "{DED93DEE-493B-4AE4-AA6B-1FACD3412734}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartMvvm.Xaml.UnitTests", "SmartMvvm.Xaml.UnitTests\SmartMvvm.Xaml.UnitTests.csproj", "{0C12C0F6-201C-4787-B4E7-37C6D36BFA66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMvvm.Xaml.UnitTests", "SmartMvvm.Xaml.UnitTests\SmartMvvm.Xaml.UnitTests.csproj", "{0C12C0F6-201C-4787-B4E7-37C6D36BFA66}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMvvm.Avalonia.Xaml", "SmartMvvm.Avalonia.Xaml\SmartMvvm.Avalonia.Xaml.csproj", "{C16296B6-C7BB-4982-8119-76CE8B469BEB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMvvm.Avalonia.Xaml.Sample", "SmartMvvm.Avalonia.Xaml.Sample\SmartMvvm.Avalonia.Xaml.Sample.csproj", "{B10A858F-F949-4BBD-811D-8ECC810116D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SmartMvvm.Avalonia.Xaml.UnitTests", "SmartMvvm.Avalonia.Xaml.UnitTests\SmartMvvm.Avalonia.Xaml.UnitTests.csproj", "{200B9F60-7B5C-41E3-B42E-C4FF5964724C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Avalonia", "Avalonia", "{693B1FBB-29CC-44D6-9EC4-5CE3FDA4EFDD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WPF", "WPF", "{CF08604D-4B95-4B48-A6EA-B31E40CE4D56}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{CC05E008-C72D-4CEA-9825-C7D0201DC2AF}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		Directory.Build.props = Directory.Build.props
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,9 +43,29 @@ Global
 		{0C12C0F6-201C-4787-B4E7-37C6D36BFA66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C12C0F6-201C-4787-B4E7-37C6D36BFA66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C12C0F6-201C-4787-B4E7-37C6D36BFA66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C16296B6-C7BB-4982-8119-76CE8B469BEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C16296B6-C7BB-4982-8119-76CE8B469BEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C16296B6-C7BB-4982-8119-76CE8B469BEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C16296B6-C7BB-4982-8119-76CE8B469BEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B10A858F-F949-4BBD-811D-8ECC810116D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B10A858F-F949-4BBD-811D-8ECC810116D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B10A858F-F949-4BBD-811D-8ECC810116D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B10A858F-F949-4BBD-811D-8ECC810116D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{200B9F60-7B5C-41E3-B42E-C4FF5964724C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200B9F60-7B5C-41E3-B42E-C4FF5964724C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200B9F60-7B5C-41E3-B42E-C4FF5964724C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200B9F60-7B5C-41E3-B42E-C4FF5964724C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6A844C4B-42C0-4AB0-8D1E-C22F11613041} = {CF08604D-4B95-4B48-A6EA-B31E40CE4D56}
+		{DED93DEE-493B-4AE4-AA6B-1FACD3412734} = {CF08604D-4B95-4B48-A6EA-B31E40CE4D56}
+		{0C12C0F6-201C-4787-B4E7-37C6D36BFA66} = {CF08604D-4B95-4B48-A6EA-B31E40CE4D56}
+		{C16296B6-C7BB-4982-8119-76CE8B469BEB} = {693B1FBB-29CC-44D6-9EC4-5CE3FDA4EFDD}
+		{B10A858F-F949-4BBD-811D-8ECC810116D9} = {693B1FBB-29CC-44D6-9EC4-5CE3FDA4EFDD}
+		{200B9F60-7B5C-41E3-B42E-C4FF5964724C} = {693B1FBB-29CC-44D6-9EC4-5CE3FDA4EFDD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4E76B222-F14A-4CAA-995D-5DA4259AE81B}

@@ -1,6 +1,11 @@
-$project = "$PSScriptRoot\..\src\SmartMvvm.Xaml.UnitTests\SmartMvvm.Xaml.UnitTests.csproj"
+$solution = "$PSScriptRoot\..\src\SmartMvvm.Xaml.sln"
 
 
-$props = @($project, '-c', 'Release')
+$props = @($solution, '-c', 'Release')
 
 dotnet test $props
+
+if ($LASTEXITCODE)
+{
+    exit $LASTEXITCODE
+}

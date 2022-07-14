@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="SmartMvvm.Avalonia.Xaml.Sample.GeneralView"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             x:Name="View">
+
+    <UserControl.Styles>
+    
+        <Style Selector="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Margin" Value="0,2" />
+        </Style>
+
+        <!-- adjust style to prevent ignoring the local Background color on checked / pointerover-->
+        <Style Selector="ToggleButton:checked /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{TemplateBinding Background}" />
+        </Style>
+        <Style Selector="ToggleButton:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{TemplateBinding Background}" />
+        </Style>
+
+    </UserControl.Styles>
+        
+    <UserControl.Resources>
+
+        <Var x:Key="Width"
+             Value="{Binding ElementName=View, Path=Bounds.Width}" />
+        <Var x:Key="Height"
+             Value="{Binding ElementName=View, Path=Bounds.Height}" />
+
+        <Var x:Key="IsOne" Value="{Equal {Binding ElementName=TB, Path=Text}, '1'}" />
+
+    </UserControl.Resources>
+
+    <StackPanel>
+        <TextBlock Text="{Format 'Width: {0} pixels',
+                                 {Use Width}}" />
+        <TextBlock Text="{Format 'Height: {0} pixels',
+                                 {Use Height}}" />
+        <TextBlock Text="{If {Equal {Use Width},
+                                    {Use Height},
+                                    Epsilon=10},
+                             Then='Width is close to Height',
+                             Else={If {Less {Use Width},
+                                            {Use Height}},
+                                      Then='Width is less than Height',
+                                      Else='Width is greater than Height'}}"
+                   Foreground="{If {Equal {Use Width},
+                                          {Use Height},
+                                          Epsilon=10},
+                                   Then={x:Static Brushes.Black},
+                                   Else={If {Less {Use Width},
+                                                  {Use Height}},
+                                            Then={x:Static Brushes.Green},
+                                            Else={x:Static Brushes.Blue}}}" />
+        <TextBlock Text="{Format Altogether: {0} pixels.,
+                                 {Calc 'x * y',
+                                       {Use Width},
+                                       {Use Height}}}" />
+        <Separator Margin="5" />
+        <CheckBox x:Name="CheckBox"
+                  Content="Hide button" />
+        <TextBlock Text="{Format 'Button is {0}',
+                                 {If {Equal {Binding ElementName=Button, Path=IsVisible},
+                                            {Bool True}},
+                                     Then='visible',
+                                     Else='invisible'}}" />
+        <ToggleButton x:Name="Button"
+                      Width="160"
+                      HorizontalAlignment="Left"
+                      Content="Change text color"
+                      Background="{If {Binding RelativeSource={RelativeSource Self}, Path=IsChecked},
+                                      Then={x:Static Brushes.Green},
+                                      Else={x:Static Brushes.Red}}"
+                      IsVisible="{Equal {Binding ElementName=CheckBox, Path=IsChecked},
+                                        {Bool False}}" />
+        <Separator Margin="5" />
+        <TextBlock Text="{Format 'Current date: {0:yyyy-MM-dd}',
+                                 {x:Static system:DateTime.Now}}" />
+    </StackPanel>
+</UserControl>

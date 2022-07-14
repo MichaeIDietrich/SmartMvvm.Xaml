@@ -1,0 +1,30 @@
+﻿<Window x:Class="SmartMvvm.Avalonia.Xaml.Sample.MainWindow"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:sample="clr-namespace:SmartMvvm.Avalonia.Xaml.Sample"
+        Width="800"
+        Height="450"
+        Title="Sample"
+        UseLayoutRounding="True">
+
+    <TabControl Padding="10">
+        <TabItem Header="General">
+            <sample:GeneralView />
+        </TabItem>
+        <TabItem Header="Logic">
+            <sample:LogicView />
+        </TabItem>
+        <TabItem Header="Calculator">
+            <sample:CalculatorView />
+        </TabItem>
+        <TabItem Header="Master/Detail">
+            <sample:ListBoxView />
+        </TabItem>
+        <TabItem Header="Type">
+            <sample:EqualTypeView />
+        </TabItem>
+        <TabItem Header="Switch">
+            <sample:SwitchView />
+        </TabItem>
+    </TabControl>
+</Window>
